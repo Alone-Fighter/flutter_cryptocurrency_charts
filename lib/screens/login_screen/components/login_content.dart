@@ -1,3 +1,6 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:clean_app/presentation/page/navigation_page.dart';
+import 'package:clean_app/presentation/router/app_router.gr.dart';
 import 'package:clean_app/utils/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -56,7 +59,9 @@ class _LoginContentState extends State<LoginContent>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          context.router.navigate(NavigationPageRouter());
+        },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
           shape: const StadiumBorder(),

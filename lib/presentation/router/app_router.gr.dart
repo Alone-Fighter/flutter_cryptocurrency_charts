@@ -16,8 +16,8 @@ import 'package:auto_route/empty_router_widgets.dart' as _i3;
 import 'package:fl_chart/fl_chart.dart' as _i10;
 import 'package:flutter/material.dart' as _i9;
 
-import '../../screens/login_screen/login_screen.dart' as _i1;
-import '../page/login_screen.dart' as _i2;
+import '../../screens/login_screen/login_screen.dart' as _i2;
+import '../page/navigation_page.dart' as _i1;
 import '../page/portfolio/portfolio_page.dart' as _i7;
 import '../page/profile/profile_page.dart' as _i4;
 import '../page/ratings/detail_info_page.dart' as _i6;
@@ -29,13 +29,13 @@ class AppRouter extends _i8.RootStackRouter {
 
   @override
   final Map<String, _i8.PageFactory> pagesMap = {
-    LoginPage.name: (routeData) {
-      return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.LoginScreen());
-    },
     NavigationPageRouter.name: (routeData) {
       return _i8.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.LoginPage());
+          routeData: routeData, child: const _i1.NavigationPage());
+    },
+    LoginPage.name: (routeData) {
+      return _i8.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i2.LoginScreen());
     },
     RatingsPageRouter.name: (routeData) {
       return _i8.MaterialPageX<dynamic>(
@@ -80,62 +80,51 @@ class AppRouter extends _i8.RootStackRouter {
   List<_i8.RouteConfig> get routes => [
         _i8.RouteConfig('/#redirect',
             path: '/', redirectTo: 'presentation/loginpage', fullMatch: true),
-        _i8.RouteConfig(LoginPage.name,
-            path: 'presentation/loginpage',
+        _i8.RouteConfig(NavigationPageRouter.name,
+            path: 'presentation/navigation_page',
             children: [
-              _i8.RouteConfig('#redirect',
-                  path: '',
-                  parent: LoginPage.name,
-                  redirectTo: 'presentation/navigation_page',
-                  fullMatch: true),
-              _i8.RouteConfig(NavigationPageRouter.name,
-                  path: 'presentation/navigation_page',
-                  parent: LoginPage.name,
+              _i8.RouteConfig(RatingsPageRouter.name,
+                  path: 'presentation/page/ratings/ratings_page',
+                  parent: NavigationPageRouter.name,
                   children: [
-                    _i8.RouteConfig(RatingsPageRouter.name,
-                        path: 'presentation/page/ratings/ratings_page',
-                        parent: NavigationPageRouter.name,
-                        children: [
-                          _i8.RouteConfig(RatingsRoute.name,
-                              path: '', parent: RatingsPageRouter.name),
-                          _i8.RouteConfig(DetailInfoRoute.name,
-                              path: '', parent: RatingsPageRouter.name)
-                        ]),
-                    _i8.RouteConfig(PortfolioPageRouter.name,
-                        path: 'presentation/page/portfolio/portfolio_page',
-                        parent: NavigationPageRouter.name,
-                        children: [
-                          _i8.RouteConfig(PortfolioRoute.name,
-                              path: '', parent: PortfolioPageRouter.name),
-                          _i8.RouteConfig(DetailInfoRoute.name,
-                              path: '', parent: PortfolioPageRouter.name)
-                        ]),
-                    _i8.RouteConfig(ProfilePageRouter.name,
-                        path: 'presentation/page/profile/profile_page',
-                        parent: NavigationPageRouter.name)
-                  ])
-            ])
+                    _i8.RouteConfig(RatingsRoute.name,
+                        path: '', parent: RatingsPageRouter.name),
+                    _i8.RouteConfig(DetailInfoRoute.name,
+                        path: '', parent: RatingsPageRouter.name)
+                  ]),
+              _i8.RouteConfig(PortfolioPageRouter.name,
+                  path: 'presentation/page/portfolio/portfolio_page',
+                  parent: NavigationPageRouter.name,
+                  children: [
+                    _i8.RouteConfig(PortfolioRoute.name,
+                        path: '', parent: PortfolioPageRouter.name),
+                    _i8.RouteConfig(DetailInfoRoute.name,
+                        path: '', parent: PortfolioPageRouter.name)
+                  ]),
+              _i8.RouteConfig(ProfilePageRouter.name,
+                  path: 'presentation/page/profile/profile_page',
+                  parent: NavigationPageRouter.name)
+            ]),
+        _i8.RouteConfig(LoginPage.name, path: 'presentation/loginpage')
       ];
 }
 
 /// generated route for
-/// [_i1.LoginScreen]
-class LoginPage extends _i8.PageRouteInfo<void> {
-  const LoginPage({List<_i8.PageRouteInfo>? children})
-      : super(LoginPage.name,
-            path: 'presentation/loginpage', initialChildren: children);
-
-  static const String name = 'LoginPage';
-}
-
-/// generated route for
-/// [_i2.LoginPage]
+/// [_i1.NavigationPage]
 class NavigationPageRouter extends _i8.PageRouteInfo<void> {
   const NavigationPageRouter({List<_i8.PageRouteInfo>? children})
       : super(NavigationPageRouter.name,
             path: 'presentation/navigation_page', initialChildren: children);
 
   static const String name = 'NavigationPageRouter';
+}
+
+/// generated route for
+/// [_i2.LoginScreen]
+class LoginPage extends _i8.PageRouteInfo<void> {
+  const LoginPage() : super(LoginPage.name, path: 'presentation/loginpage');
+
+  static const String name = 'LoginPage';
 }
 
 /// generated route for

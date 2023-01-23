@@ -2,9 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:clean_app/backbone/dependency_injection.dart' as di;
 import 'package:clean_app/presentation/bloc/settings/bloc.dart';
 import 'package:clean_app/presentation/router/app_router.gr.dart';
+import 'package:clean_app/screens/login_screen/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -58,7 +60,7 @@ class _NavigationPageState extends State<NavigationPage> {
                     color: Theme.of(context).hintColor,
                   ),
                   title: Text(
-                    'ratings'.tr(),
+                    'ratings',
                   ),
                 ),
                 SalomonBottomBarItem(
@@ -71,7 +73,7 @@ class _NavigationPageState extends State<NavigationPage> {
                     color: Theme.of(context).hintColor,
                   ),
                   title: Text(
-                    'market'.tr(),
+                    'market',
                   ),
                 ),
                 SalomonBottomBarItem(
@@ -84,7 +86,7 @@ class _NavigationPageState extends State<NavigationPage> {
                     color: Theme.of(context).hintColor,
                   ),
                   title: Text(
-                    'settings'.tr(),
+                    'settings',
                   ),
                 ),
               ],
