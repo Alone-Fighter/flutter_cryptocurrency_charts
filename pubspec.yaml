@@ -26,6 +26,11 @@ dependencies:
   http: 0.13.5
   salomon_bottom_bar: 3.3.1
   shimmer: 2.0.0
+  firebase_auth: ^3.10.0
+  firebase_core: ^1.23.0
+  get: ^4.6.5
+  ionicons: ^0.1.2
+
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +48,16 @@ flutter:
   assets:
     - assets/images/
     - assets/translations/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Montserrat-SemiBold.otf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Bold.otf
+          weight: 700
 flutter_native_splash:
   color: "#0C0B09"
   image: "assets/images/crypto_splash_screen.png"
